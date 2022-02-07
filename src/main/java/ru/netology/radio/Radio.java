@@ -4,35 +4,39 @@ public class Radio {
     private int currentChanel;
     private int currentVolume;
     private int numberChanel = 10;
-    private int maxChanel =numberChanel-1;
+    private int maxChanel;
+
+    public Radio(){
+
+    }
 
 
     public Radio(int numberChanel, int maxChanel) {
         this.numberChanel = numberChanel;
-        this.maxChanel = maxChanel;
+        this.maxChanel = numberChanel - 1;
     }
 
     // public Radio( int numberChanel) {
-     //   this.numberChanel = numberChanel;
-       // this.maxChanel = numberChanel - 1;
-   // }
+    //   this.numberChanel = numberChanel;
+    // this.maxChanel = numberChanel - 1;
+    // }
 
 
-    // public int getNumberChanel() {
-     //   return numberChanel;
-   // }
+    public int getNumberChanel() {
+        return numberChanel;
+    }
 
     //public void setNumberChanel(int numberChanel) {
-      //  this.numberChanel = numberChanel;
-   // }
+    //  this.numberChanel = numberChanel;
+    // }
 
-    // public int getMaxChanel() {
-      //return  maxChanel;
-   // }
+    public int getMaxChanel() {
+        return maxChanel;
+    }
 
-   // public  void setMaxChanel(int numberChanel) {
-     // this.maxChanel = numberChanel -1;
-  //  }
+    // public  void setMaxChanel(int numberChanel) {
+    // this.maxChanel = numberChanel -1;
+    //  }
 
     public int getCurrentChanel() {
         return currentChanel;

@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
+ //   Radio radio = new Radio();
+
 
     //   @ParameterizedTest
     // @CsvSource(value = )
@@ -29,25 +31,39 @@ class RadioTest {
             "input,10,10",
             "input,11,11",
     })
-    void numberChanel(int numberChanel, int expected) {
-        Radio radio = new Radio(numberChanel);
-        this.numberChanel(numberChanel);
-        assertEquals(expected,numberChanel);
+    void numberChanel(int numberChanel, int maxChanel, int expected) {
+        Radio radio = new Radio(numberChanel, maxChanel);
+
+        assertEquals(expected,radio.getNumberChanel());
 
     }
 
     @ParameterizedTest
-    @CsvSource (value = {
-            "examination,10,9",
-            "examination,11,10",
-            "examination,9,8",
-    } )
-    void maxChanel(int numberChanel, int maxChanel, int expected ) {
+    @CsvSource(value = {
+            "input,1,0",
+            "input,10,9",
+            "input,11,10",
+    })
+    void maxChanel(int numberChanel, int maxChanel, int expected) {
         Radio radio = new Radio(numberChanel, maxChanel);
-        radio.setCurrentChanel();
-        //this.maxChanel(maxChanel);
-        assertEquals(expected, maxChanel );
+
+        assertEquals(expected,radio.getMaxChanel());
+
     }
+   // @ParameterizedTest
+   // @CsvSource (value = {
+     //       "examination,10,9",
+     //       "examination,11,10",
+      //      "examination,9,8",
+ //   } )
+   // void maxChanel(int numberChanel, int maxChanel, int expected ) {
+   //     Radio radio = new Radio(numberChanel, maxChanel);
+       // radio.setCurrentChanel();
+       // this.maxChanel(maxChanel);
+      //  assertEquals(expected, maxChanel );
+ //  }
+   Radio radio = new Radio();
+
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -55,8 +71,8 @@ class RadioTest {
             "limit values,10,0",
             "limit values,0,0",
     })
-    void setCurrentChanel1(String testName, int currentChanel, int expected) {
-         Radio radio = new Radio();
+    void setCurrentChanel1(String testname, int currentChanel, int expected) {
+        // Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         assertEquals(expected, radio.getCurrentChanel());
 
@@ -67,8 +83,8 @@ class RadioTest {
     @CsvSource(value = {
             "limit values,9,0",
     })
-    void next(String testName, int currentChanel, int expected) {
-          Radio radio = new Radio();
+    void next(String testname, int currentChanel, int expected) {
+        // Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         radio.next();
         assertEquals(expected, radio.getCurrentChanel());
@@ -79,8 +95,8 @@ class RadioTest {
     @CsvSource(value = {
             "limit values,1,0",
     })
-    void prev(String testName, int currentChanel, int expected) {
-          Radio radio = new Radio();
+    void prev(String testname, int currentChanel, int expected) {
+         // Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         radio.prev();
         assertEquals(expected, radio.getCurrentChanel());
@@ -91,8 +107,8 @@ class RadioTest {
     @CsvSource(value = {
             "adding a volume,5,5",
     })
-    void getCurrentVolume(String testName, int currentVolume, int expected) {
-         Radio radio = new Radio();
+    void getCurrentVolume(String testname, int currentVolume, int expected) {
+        // Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         assertEquals(expected, radio.getCurrentVolume());
 
@@ -106,8 +122,8 @@ class RadioTest {
             "limit values,9,9",
             "limit values,101,0"
     })
-    void setCurrentVolume(String testName, int currentVolume, int expected) {
-         Radio radio = new Radio();
+    void setCurrentVolume(String testname, int currentVolume, int expected) {
+        // Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         assertEquals(expected, radio.getCurrentVolume());
     }
@@ -118,8 +134,8 @@ class RadioTest {
             "limit values,1,2",
             "limit values,9,10",
     })
-    void up(String testName, int currentVolume, int expected) {
-        Radio radio = new Radio();
+    void up(String testname, int currentVolume, int expected) {
+        //Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         radio.up();
         assertEquals(expected, radio.getCurrentVolume());
@@ -131,8 +147,8 @@ class RadioTest {
             "limit values,1,0",
 
     })
-    void down(String testName, int currentVolume, int expected) {
-        Radio radio = new Radio();
+    void down(String testname, int currentVolume, int expected) {
+       // Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         radio.down();
         assertEquals(expected, radio.getCurrentVolume());
