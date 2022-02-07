@@ -4,22 +4,35 @@ public class Radio {
     private int currentChanel;
     private int currentVolume;
     private int numberChanel = 10;
-    private int maxChanel;
+    private int maxChanel =numberChanel-1;
 
-    public int getNumberChanel() {
-        return numberChanel;
-    }
-    public void setNumberChanel(int numberChanel) {
+
+    public Radio(int numberChanel, int maxChanel) {
         this.numberChanel = numberChanel;
+        this.maxChanel = maxChanel;
     }
 
-    public int getMaxChanel() {
-         return  maxChanel;
-    }
+    // public Radio( int numberChanel) {
+     //   this.numberChanel = numberChanel;
+       // this.maxChanel = numberChanel - 1;
+   // }
 
-    public  void setMaxChanel(int maxChanel) {
-        this.maxChanel = numberChanel -1;
-    }
+
+    // public int getNumberChanel() {
+     //   return numberChanel;
+   // }
+
+    //public void setNumberChanel(int numberChanel) {
+      //  this.numberChanel = numberChanel;
+   // }
+
+    // public int getMaxChanel() {
+      //return  maxChanel;
+   // }
+
+   // public  void setMaxChanel(int numberChanel) {
+     // this.maxChanel = numberChanel -1;
+  //  }
 
     public int getCurrentChanel() {
         return currentChanel;
@@ -36,11 +49,11 @@ public class Radio {
     }
 
     public void next() {
-        setCurrentChanel(currentChanel = currentChanel +1);
+        setCurrentChanel(currentChanel = currentChanel + 1);
     }
 
     public void prev() {
-        setCurrentChanel(currentChanel = currentChanel -1);
+        setCurrentChanel(currentChanel = currentChanel - 1);
     }
 
     public int getCurrentVolume() {
@@ -58,11 +71,11 @@ public class Radio {
     }
 
     public void up() {
-        setCurrentVolume(currentVolume = currentVolume +1);
+        setCurrentVolume(currentVolume = currentVolume + 1);
     }
 
     public void down() {
-        setCurrentVolume(currentVolume = currentVolume -1);
+        setCurrentVolume(currentVolume = currentVolume - 1);
     }
 
 }

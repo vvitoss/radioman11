@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
+
+    //   @ParameterizedTest
+    // @CsvSource(value = )
+
     // @ParameterizedTest
     //  @CsvSource(value = {
     //         "adding a channel,2,2",
@@ -16,8 +20,34 @@ class RadioTest {
     //   Radio radio = new Radio();
     // radio.setCurrentChanel(currentChanel);
 
-    // assertEquals(expected, radio.getCurrentChanel());
+    // assertEquals(expected, radio.getCurrentChanel())
     //}
+
+    @ParameterizedTest
+    @CsvSource(value = {
+            "input,1,1",
+            "input,10,10",
+            "input,11,11",
+    })
+    void numberChanel(int numberChanel, int expected) {
+        Radio radio = new Radio(numberChanel);
+        this.numberChanel(numberChanel);
+        assertEquals(expected,numberChanel);
+
+    }
+
+    @ParameterizedTest
+    @CsvSource (value = {
+            "examination,10,9",
+            "examination,11,10",
+            "examination,9,8",
+    } )
+    void maxChanel(int numberChanel, int maxChanel, int expected ) {
+        Radio radio = new Radio(numberChanel, maxChanel);
+        radio.setCurrentChanel();
+        //this.maxChanel(maxChanel);
+        assertEquals(expected, maxChanel );
+    }
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -26,7 +56,7 @@ class RadioTest {
             "limit values,0,0",
     })
     void setCurrentChanel1(String testName, int currentChanel, int expected) {
-        Radio radio = new Radio();
+         Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         assertEquals(expected, radio.getCurrentChanel());
 
@@ -38,7 +68,7 @@ class RadioTest {
             "limit values,9,0",
     })
     void next(String testName, int currentChanel, int expected) {
-        Radio radio = new Radio();
+          Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         radio.next();
         assertEquals(expected, radio.getCurrentChanel());
@@ -50,7 +80,7 @@ class RadioTest {
             "limit values,1,0",
     })
     void prev(String testName, int currentChanel, int expected) {
-        Radio radio = new Radio();
+          Radio radio = new Radio();
         radio.setCurrentChanel(currentChanel);
         radio.prev();
         assertEquals(expected, radio.getCurrentChanel());
@@ -62,7 +92,7 @@ class RadioTest {
             "adding a volume,5,5",
     })
     void getCurrentVolume(String testName, int currentVolume, int expected) {
-        Radio radio = new Radio();
+         Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         assertEquals(expected, radio.getCurrentVolume());
 
@@ -77,7 +107,7 @@ class RadioTest {
             "limit values,101,0"
     })
     void setCurrentVolume(String testName, int currentVolume, int expected) {
-        Radio radio = new Radio();
+         Radio radio = new Radio();
         radio.setCurrentVolume(currentVolume);
         assertEquals(expected, radio.getCurrentVolume());
     }
@@ -108,30 +138,30 @@ class RadioTest {
         assertEquals(expected, radio.getCurrentVolume());
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "limit values,11,11",
-            "limit values,9,9",
-            "limit values,10,10",
+    //  @ParameterizedTest
+    //  @CsvSource(value = {
+    //         "limit values,11,11",
+    //        "limit values,9,9",
+    //        "limit values,10,10",
 
-    })
-    void setNumberChanel(String testName, int numberChanel, int expected) {
-        Radio radio = new Radio();
-        radio.setNumberChanel(numberChanel);
-        assertEquals(expected, radio.getNumberChanel());
-    }
+    // })
+    //  void setNumberChanel(String testName, int numberChanel, int expected) {
+    //     Radio radio = new Radio();
+    //     radio.setNumberChanel(numberChanel);
+    //     assertEquals(expected, radio.getNumberChanel());
+    //  }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "limit values,11,10,10",
-            "limit values,9,8,8",
-            "limit values,10,9,9",
+    //  @ParameterizedTest
+    // @CsvSource(value = {
+    //      "limit values,11,10,10",
+    //      "limit values,9,8,8",
+    //    "limit values,10,9,9",
 
-    })
-    void setMaxChanelString( String testName, int numberChanel, int maxChanel, int expected ) {
-        Radio radio = new Radio();
-        radio.setNumberChanel(numberChanel);
-        radio.setMaxChanel(maxChanel);
-        assertEquals(expected, radio.getMaxChanel());
-    }
+    //  })
+    // void setMaxChanelString(String testName, int numberChanel, int maxChanel, int expected) {
+    //     Radio radio = new Radio();
+    //     radio.setNumberChanel(numberChanel);
+    //      radio.setMaxChanel(maxChanel);
+    //       assertEquals(expected, radio.getMaxChanel());
+    //}
 }
