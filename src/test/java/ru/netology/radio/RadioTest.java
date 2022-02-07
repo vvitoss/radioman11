@@ -27,27 +27,29 @@ class RadioTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "input,1,1",
-            "input,10,10",
-            "input,11,11",
+
+            "entering values,1,0,1",
+            "entering values,10,9,10",
+            "entering values,11,10,11",
     })
-    void numberChanel(int numberChanel, int maxChanel, int expected) {
+    void numberChanel(String testname, int numberChanel, int maxChanel, int expected) {
         Radio radio = new Radio(numberChanel, maxChanel);
 
-        assertEquals(expected,radio.getNumberChanel());
+        assertEquals(expected, radio.getNumberChanel());
 
     }
 
     @ParameterizedTest
     @CsvSource(value = {
-            "input,1,0",
-            "input,10,9",
-            "input,11,10",
+
+            "entering values,1,0,0",
+            "entering values,10,9,9",
+            "entering values,11,10,10",
     })
-    void maxChanel(int numberChanel, int maxChanel, int expected) {
+    void maxChanel(String testname, int numberChanel, int maxChanel, int expected) {
         Radio radio = new Radio(numberChanel, maxChanel);
 
-        assertEquals(expected,radio.getMaxChanel());
+        assertEquals(expected, radio.getMaxChanel());
 
     }
    // @ParameterizedTest
